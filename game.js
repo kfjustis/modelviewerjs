@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/Addons.js';
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
@@ -14,6 +15,10 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(70, WIDTH/HEIGHT);
 camera.position.z = 50;
 scene.add(camera);
+
+// Set orbit controls.
+const controls = new OrbitControls( camera, renderer.domElement);
+controls.update();
 
 var boxGeometry = new THREE.BoxGeometry(10, 10, 10);
 var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
